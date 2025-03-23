@@ -19,7 +19,7 @@ class Tensor:
             mul *= d
 
         res = 0
-        for i in range(len(coordinates) - 1, -1, -1):
+        for i in range(len(coordinates)):
             mul //= self.dimension[i]
             res += mul * coordinates[i]
 
@@ -34,7 +34,7 @@ class Tensor:
             mul *= d
 
         coordinates = []
-        for d in self.dimension[::-1]:
+        for d in self.dimension:
             mul //= d
             coordinates.append(i // mul)
             i %= mul
